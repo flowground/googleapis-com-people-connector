@@ -1,0 +1,113 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A request to create a new contact group.",
+            "properties": {
+                "contactGroup": {
+                    "description": "The contact group to create.",
+                    "properties": {
+                        "etag": {
+                            "description": "The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the\nresource. Used for web cache validation.",
+                            "type": "string"
+                        },
+                        "formattedName": {
+                            "description": "The read-only name translated and formatted in the viewer's account locale\nor the `Accept-Language` HTTP header locale for system groups names.\nGroup names set by the owner are the same as name.",
+                            "type": "string"
+                        },
+                        "groupType": {
+                            "description": "The read-only contact group type.",
+                            "enum": [
+                                "GROUP_TYPE_UNSPECIFIED",
+                                "USER_CONTACT_GROUP",
+                                "SYSTEM_CONTACT_GROUP"
+                            ],
+                            "type": "string"
+                        },
+                        "memberCount": {
+                            "description": "The total number of contacts in the group irrespective of max members in\nspecified in the request.",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "memberResourceNames": {
+                            "description": "The list of contact person resource names that are members of the contact\ngroup. The field is not populated for LIST requests and can only be updated\nthrough the\n[ModifyContactGroupMembers](/people/api/rest/v1/contactgroups/members/modify).",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "metadata": {
+                            "description": "Metadata about the contact group.",
+                            "properties": {
+                                "deleted": {
+                                    "description": "True if the contact group resource has been deleted. Populated only for\n[`ListContactGroups`](/people/api/rest/v1/contactgroups/list) requests\nthat include a sync token.",
+                                    "type": "boolean"
+                                },
+                                "updateTime": {
+                                    "description": "The time the group was last updated.",
+                                    "format": "google-datetime",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "name": {
+                            "description": "The contact group name set by the group owner or a system provided name\nfor system groups.",
+                            "type": "string"
+                        },
+                        "resourceName": {
+                            "description": "The resource name for the contact group, assigned by the server. An ASCII\nstring, in the form of `contactGroups/`<var>contact_group_id</var>.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "__xgafv": {
+            "type": "string",
+            "enum": [
+                "1",
+                "2"
+            ]
+        }
+    }
+}

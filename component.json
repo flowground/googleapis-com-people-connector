@@ -1,0 +1,254 @@
+{
+    "title": "People",
+    "description": "Provides access to information about profiles and contacts.",
+    "docsUrl": "https://developers.google.com/people/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/people/v1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://people.googleapis.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "people_contactGroups_list": {
+            "main": "./lib/actions/people_contactGroups_list.js",
+            "title": "List all contact groups owned by the authenticated user. Members of the\ncontact groups are not populated.",
+            "description": "List all contact groups owned by the authenticated user. Members of the\ncontact groups are not populated.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_contactGroups_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_contactGroups_create": {
+            "main": "./lib/actions/people_contactGroups_create.js",
+            "title": "Create a new contact group owned by the authenticated user.",
+            "description": "Create a new contact group owned by the authenticated user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_contactGroups_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_contactGroups_batchGet": {
+            "main": "./lib/actions/people_contactGroups_batchGet.js",
+            "title": "Get a list of contact groups owned by the authenticated user by specifying\na list of contact group resource names.",
+            "description": "Get a list of contact groups owned by the authenticated user by specifying\na list of contact group resource names.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_contactGroups_batchGet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_people_getBatchGet": {
+            "main": "./lib/actions/people_people_getBatchGet.js",
+            "title": "Provides information about a list of specific people by specifying a list\nof requested resource names. Use `people/me` to indicate the authenticated\nuser.\n<br>\nThe request throws a 400 error if 'personFields' is not specified.",
+            "description": "Provides information about a list of specific people by specifying a list\nof requested resource names. Use `people/me` to indicate the authenticated\nuser.\n<br>\nThe request throws a 400 error if 'personFields' is not specified.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_people_getBatchGet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_people_createContact": {
+            "main": "./lib/actions/people_people_createContact.js",
+            "title": "Create a new contact and return the person resource for that contact.",
+            "description": "Create a new contact and return the person resource for that contact.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_people_createContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_contactGroups_delete": {
+            "main": "./lib/actions/people_contactGroups_delete.js",
+            "title": "Delete an existing contact group owned by the authenticated user by\nspecifying a contact group resource name.",
+            "description": "Delete an existing contact group owned by the authenticated user by\nspecifying a contact group resource name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_contactGroups_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_contactGroups_get": {
+            "main": "./lib/actions/people_contactGroups_get.js",
+            "title": "Get a specific contact group owned by the authenticated user by specifying\na contact group resource name.",
+            "description": "Get a specific contact group owned by the authenticated user by specifying\na contact group resource name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_contactGroups_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_contactGroups_update": {
+            "main": "./lib/actions/people_contactGroups_update.js",
+            "title": "Update the name of an existing contact group owned by the authenticated\nuser.",
+            "description": "Update the name of an existing contact group owned by the authenticated\nuser.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_contactGroups_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_people_connections_list": {
+            "main": "./lib/actions/people_people_connections_list.js",
+            "title": "Provides a list of the authenticated user's contacts merged with any\nconnected profiles.\n<br>\nThe request throws a 400 error if 'personFields' is not specified.",
+            "description": "Provides a list of the authenticated user's contacts merged with any\nconnected profiles.\n<br>\nThe request throws a 400 error if 'personFields' is not specified.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_people_connections_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_contactGroups_members_modify": {
+            "main": "./lib/actions/people_contactGroups_members_modify.js",
+            "title": "Modify the members of a contact group owned by the authenticated user.\n<br>\nThe only system contact groups that can have members added are\n`contactGroups/myContacts` and `contactGroups/starred`. Other system\ncontact groups are deprecated and can only have contacts removed.",
+            "description": "Modify the members of a contact group owned by the authenticated user.\n<br>\nThe only system contact groups that can have members added are\n`contactGroups/myContacts` and `contactGroups/starred`. Other system\ncontact groups are deprecated and can only have contacts removed.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_contactGroups_members_modify.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_people_deleteContact": {
+            "main": "./lib/actions/people_people_deleteContact.js",
+            "title": "Delete a contact person. Any non-contact data will not be deleted.",
+            "description": "Delete a contact person. Any non-contact data will not be deleted.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_people_deleteContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "people_people_updateContact": {
+            "main": "./lib/actions/people_people_updateContact.js",
+            "title": "Update contact data for an existing contact person. Any non-contact data\nwill not be modified.\n\nThe request throws a 400 error if `updatePersonFields` is not specified.\n<br>\nThe request throws a 400 error if `person.metadata.sources` is not\nspecified for the contact to be updated.\n<br>\nThe request throws a 412 error if `person.metadata.sources.etag` is\ndifferent than the contact's etag, which indicates the contact has changed\nsince its data was read. Clients should get the latest person and re-apply\ntheir updates to the latest person.",
+            "description": "Update contact data for an existing contact person. Any non-contact data\nwill not be modified.\n\nThe request throws a 400 error if `updatePersonFields` is not specified.\n<br>\nThe request throws a 400 error if `person.metadata.sources` is not\nspecified for the contact to be updated.\n<br>\nThe request throws a 412 error if `person.metadata.sources.etag` is\ndifferent than the contact's etag, which indicates the contact has changed\nsince its data was read. Clients should get the latest person and re-apply\ntheir updates to the latest person.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/people_people_updateContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

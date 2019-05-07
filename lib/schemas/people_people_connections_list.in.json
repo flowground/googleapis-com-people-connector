@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "pageSize": {
+            "type": "integer"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "personFields": {
+            "type": "string"
+        },
+        "requestSyncToken": {
+            "type": "boolean"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "sortOrder": {
+            "type": "string",
+            "enum": [
+                "LAST_MODIFIED_ASCENDING",
+                "FIRST_NAME_ASCENDING",
+                "LAST_NAME_ASCENDING"
+            ]
+        },
+        "syncToken": {
+            "type": "string"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestMask_includeField": {
+            "type": "string"
+        }
+    }
+}
